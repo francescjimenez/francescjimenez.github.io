@@ -86,22 +86,29 @@ $(document).ready(function() {
 	}
 
 	$('#sendMessage').onclick = function(){
-		alert('TEST AAA');
+
+        var firstname = $('#firstname').value();
+        var lastname = $('#lastname').value();
+        var email = $('#email').value();
+        var message = $('#message').value();
+
+        var body = '';
+        var subject = 'Contanct github.io';
+
+        if(firstname){
+        	body += 'First name: ' + firstname + '/r';
+		}
+		if(lastname){
+            body += 'Last name: ' + lastname + '/r';
+		}
+		if(email){
+            body += 'Email: ' + email + '/r';
+		}
+		if(message){
+            body += 'Message: ' + message + '/r';
+		}
+
+        window.open('mailto:contactar@francescjimenez.com?subject='+subject+'&body='+body);
+
     }
 });
-
-
-function sendMail(){
-    alert('HOLA! K TAL?');
-
-
-    /*
-    firstname
-    lastname
-    email
-    message
-	*/
-
-    // window.open('mailto:test@example.com?subject=subject&body=body');
-}
-
