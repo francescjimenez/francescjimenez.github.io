@@ -85,6 +85,9 @@ $(document).ready(function() {
 		$('.macbook-inner').waypoint(function(){$(this).toggleClass('active');$(this).toggleClass('black');},{offset:'60%'});
 	}
 
+	$('#sendMessage').onclick = function(){
+		alert('TEST AAA');
+    }
 });
 
 
