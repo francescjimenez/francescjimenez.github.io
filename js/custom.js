@@ -87,7 +87,14 @@ $(document).ready(function() {
 
 	function sendMail(){
 		alert('HOLA! K TAL?');
-		// window.open('mailto:test@example.com?subject=subject&body=body');
+
+
+		firstname
+		lastname
+		email
+		message
+
+        // window.open('mailto:test@example.com?subject=subject&body=body');
 	}
 
 });
