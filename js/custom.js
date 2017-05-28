@@ -85,16 +85,20 @@ $(document).ready(function() {
 		$('.macbook-inner').waypoint(function(){$(this).toggleClass('active');$(this).toggleClass('black');},{offset:'60%'});
 	}
 
-	function sendMail(){
-		alert('HOLA! K TAL?');
-
-
-		firstname
-		lastname
-		email
-		message
-
-        // window.open('mailto:test@example.com?subject=subject&body=body');
-	}
-
 });
+
+
+function sendMail(){
+    alert('HOLA! K TAL?');
+
+
+    /*
+    firstname
+    lastname
+    email
+    message
+	*/
+
+    // window.open('mailto:test@example.com?subject=subject&body=body');
+}
+
