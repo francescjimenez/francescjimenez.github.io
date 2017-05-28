@@ -108,6 +108,9 @@ $(document).ready(function() {
             body += 'Message: ' + message + '/r';
 		}
 
+		console.log('TEST A');
+		console.log(body);
+
         window.open('mailto:contactar@francescjimenez.com?subject='+subject+'&body='+body);
 
     }
