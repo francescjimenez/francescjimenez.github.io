@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65f389a8-7b78-424b-87c9-9f9ccb1c39ef" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/custom.js" afterPath="$PROJECT_DIR$/js/custom.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +20,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="556">
@@ -31,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="94" column="6" lean-forward="false" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
+            <state relative-caret-position="654">
+              <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -52,8 +51,8 @@
       <find>HTML</find>
       <find>My latest work</find>
       <find>352</find>
-      <find>Read n</find>
       <find>sendMail</find>
+      <find>Read n</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -210,12 +209,12 @@
       <updated>1495046666052</updated>
       <workItem from="1495046667840" duration="1285000" />
       <workItem from="1495677733587" duration="813000" />
-      <workItem from="1495936893107" duration="3956000" />
+      <workItem from="1495936893107" duration="3975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6054000" />
+    <option name="totallyTimeSpent" value="6073000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1182" y="23" width="1378" height="1413" extended-state="0" />
@@ -333,21 +332,21 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="556">
           <caret line="585" column="76" lean-forward="false" selection-start-line="585" selection-start-column="68" selection-end-line="585" selection-end-column="76" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="94" column="6" lean-forward="false" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
