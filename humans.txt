@@ -1,0 +1,13 @@
+/* TEAM */
+Your title: Francesc Jimenez
+Site: http://francescjimenez.github.io/
+Twitter: @francescjimenez
+Location: Barcelona, Spain
+
+/* THANKS */
+Name: http://www.francescjimenez.com
+
+/* SITE */
+Last update: 2017/06/28
+Standards: HTML5, CSS3
+Components: Bootsrap & jQuery
