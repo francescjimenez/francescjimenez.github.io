@@ -431,7 +431,7 @@
             color: var(--muted);
         }
 
-        /* ── SKILLS ──────────────────────────────────── */
+        /* ── LEADERSHIP MODEL ────────────────────────── */
         #skills {
             padding: 100px 80px;
             background: var(--surface);
@@ -439,57 +439,63 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .skills-grid {
+        .principles-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
             margin-top: 64px;
         }
 
-        .skill-item { margin-bottom: 28px; }
-        .skill-head {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 10px;
+        .principle-card {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px 28px;
+            transition: border-color 0.3s, transform 0.3s var(--ease);
+            position: relative;
+            overflow: hidden;
         }
-        .skill-name {
-            font-family: var(--mono);
-            font-size: 13px;
-            color: var(--text);
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--amber), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        .skill-pct {
+        .principle-card:hover {
+            border-color: rgba(232,84,122,0.25);
+            transform: translateY(-4px);
+        }
+        .principle-card:hover::before { opacity: 1; }
+
+        .principle-num {
             font-family: var(--mono);
             font-size: 11px;
             color: var(--amber);
+            letter-spacing: 0.18em;
+            margin-bottom: 20px;
         }
-        .skill-bar {
-            height: 2px;
-            background: var(--border);
-            border-radius: 2px;
-            overflow: hidden;
+        .principle-title {
+            font-family: var(--serif);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 16px;
         }
-        .skill-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--amber), var(--sky));
-            border-radius: 2px;
-            width: 0;
-            transition: width 1.2s var(--ease);
+        .principle-desc {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.75;
         }
 
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .tech-tag {
-            padding: 6px 14px;
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-family: var(--mono);
-            font-size: 12px;
-            color: var(--muted);
-            transition: border-color 0.2s, color 0.2s, transform 0.2s;
+        @media (max-width: 1100px) {
+            .principles-grid { grid-template-columns: 1fr 1fr; }
         }
-        .tech-tag:hover {
-            border-color: rgba(232,84,122,0.4);
-            color: var(--text);
-            transform: translateY(-1px);
+        @media (max-width: 640px) {
+            .principles-grid { grid-template-columns: 1fr; }
         }
 
         /* ── PROJECTS ─────────────────────────────────── */
@@ -995,65 +1001,52 @@
         </div>
     </section>
 
-    <!-- Skills -->
+    <!-- Leadership Model -->
     <section id="skills">
         <div class="section-eyebrow reveal">
-            <span class="label">Core competencies</span>
+            <span class="label">Leadership model</span>
         </div>
-        <h2 class="section-title reveal">My <em>craft</em></h2>
+        <h2 class="section-title reveal">How I <em>work</em></h2>
 
-        <div class="skills-grid">
-            <div>
-                <div class="skill-item reveal">
-                    <div class="skill-head">
-                        <span class="skill-name">Team Leadership & Management</span>
-                        <span class="skill-pct">90%</span>
-                    </div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-                </div>
-                <div class="skill-item reveal reveal-delay-1">
-                    <div class="skill-head">
-                        <span class="skill-name">Frontend Architecture & Design Systems</span>
-                        <span class="skill-pct">95%</span>
-                    </div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-                </div>
-                <div class="skill-item reveal reveal-delay-2">
-                    <div class="skill-head">
-                        <span class="skill-name">Technical Roadmap & Strategy</span>
-                        <span class="skill-pct">88%</span>
-                    </div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-                </div>
-                <div class="skill-item reveal reveal-delay-3">
-                    <div class="skill-head">
-                        <span class="skill-name">Agile, DevOps & Process Definition</span>
-                        <span class="skill-pct">85%</span>
-                    </div>
-                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-                </div>
+        <div class="principles-grid">
+            <div class="principle-card reveal">
+                <div class="principle-num">01</div>
+                <h3 class="principle-title">Embedded with Product</h3>
+                <p class="principle-desc">
+                    I don't wait for tickets. I sit at the product table, challenge requirements
+                    upstream, and make sure every technical decision maps to a business outcome.
+                    Tech and product are one team.
+                </p>
             </div>
 
-            <div class="reveal reveal-delay-1">
-                <div class="section-eyebrow" style="margin-bottom: 20px;">
-                    <span class="label">Technologies & Tools</span>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Design Systems</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Web Components</span>
-                    <span class="tech-tag">CI/CD</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Git</span>
-                    <span class="tech-tag">REST APIs</span>
-                    <span class="tech-tag">SEO</span>
-                    <span class="tech-tag">Accessibility</span>
-                    <span class="tech-tag">Performance</span>
-                    <span class="tech-tag">Agile / Scrum</span>
-                    <span class="tech-tag">Career Mentoring</span>
-                </div>
+            <div class="principle-card reveal reveal-delay-1">
+                <div class="principle-num">02</div>
+                <h3 class="principle-title">Team Topologies</h3>
+                <p class="principle-desc">
+                    I structure teams around cognitive load and stream alignment — not org charts.
+                    Clear ownership, minimal hand-offs, and Conway's Law working for you,
+                    not against you.
+                </p>
+            </div>
+
+            <div class="principle-card reveal reveal-delay-2">
+                <div class="principle-num">03</div>
+                <h3 class="principle-title">Simplification as Strategy</h3>
+                <p class="principle-desc">
+                    Complexity is a cost. The best architecture is the one your team can understand,
+                    maintain, and evolve. I actively remove friction — from code,
+                    process, and communication.
+                </p>
+            </div>
+
+            <div class="principle-card reveal reveal-delay-3">
+                <div class="principle-num">04</div>
+                <h3 class="principle-title">Technical Credibility</h3>
+                <p class="principle-desc">
+                    I stay close enough to the code to make decisions engineers respect.
+                    Hands-on when it matters — defining architecture, reviewing patterns,
+                    unblocking the team — hands-off when it doesn't.
+                </p>
             </div>
         </div>
     </section>
@@ -1335,21 +1328,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.tl-item').forEach(el => tlObs.observe(el));
 
-    // Skill bars
-    const skillObs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.querySelectorAll('.skill-fill').forEach(bar => {
-                    bar.style.width = bar.dataset.width + '%';
-                });
-                skillObs.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    const skillsSection = document.getElementById('skills');
-    if (skillsSection) skillObs.observe(skillsSection);
-
-    // Contact form
+// Contact form
     document.getElementById('contactForm').addEventListener('submit', async e => {
         e.preventDefault();
         const form = e.target;
