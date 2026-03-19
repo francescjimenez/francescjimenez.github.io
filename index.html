@@ -812,6 +812,18 @@
             .nav-links { display: none; }
         }
 
+        /* ── LARGE SCREEN CENTERING ──────────────────── */
+        @media (min-width: 1600px) {
+            #hero, #about, #skills, #work, #quote, #testimonials, #contact, footer {
+                padding-left:  calc((100vw - 1600px) / 2 + 80px);
+                padding-right: calc((100vw - 1600px) / 2 + 80px);
+            }
+            nav {
+                padding-left:  calc((100vw - 1600px) / 2 + 80px);
+                padding-right: calc((100vw - 1600px) / 2 + 80px);
+            }
+        }
+
         /* Accessibility */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

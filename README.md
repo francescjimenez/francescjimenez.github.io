@@ -4,6 +4,10 @@ Personal portfolio of **Francesc Jimenez** — Digital Operations Team Lead & IT
 
 → [francescjimenez.github.io](https://francescjimenez.github.io)
 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-francescjimenez-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/francescjimenez)
+[![Twitter](https://img.shields.io/badge/Twitter-@FrancescJimenez-1DA1F2?style=flat&logo=twitter)](https://twitter.com/FrancescJimenez)
+[![Facebook](https://img.shields.io/badge/Facebook-francescjimenez-1877F2?style=flat&logo=facebook)](https://www.facebook.com/francescjimenez)
+
 ---
 
 ## About
