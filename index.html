@@ -1,661 +1,1370 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Full Stack Developer on JavaScrip</title>
+    <title>Francesc Jimenez — Digital Operations Lead & IT Manager</title>
 
     <link rel="shortcut icon" href="icons/favicon.ico">
-	<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
     <link rel="manifest" href="icons/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#07090D">
+    <meta name="theme-color" content="#07090D">
+    <meta name="description" content="Francesc Jimenez — Digital Operations Lead & IT Manager based in Barcelona. 20+ years bridging business strategy and technical execution.">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,200;1,9..144,700;1,9..144,900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <style>
+        /* ── RESET & BASE ─────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="plugins/animate/animate.css" rel="stylesheet" type="text/css">
-    <link href="plugins/creative-brands/creative-brands.css" rel="stylesheet" type="text/css">
-    <link href="plugins/vertical-carousel/vertical-carousel.css" rel="stylesheet" type="text/css">
-    <link href="css/custom.css" rel="stylesheet" type="text/css">
-    
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+        :root {
+            --bg:        #07090D;
+            --surface:   #0E1119;
+            --surface-2: #161B27;
+            --amber:     #E8547A;
+            --amber-dim: rgba(232,84,122,0.12);
+            --sky:       #38BDF8;
+            --text:      #EDE8E3;
+            --muted:     #7C8CA0;
+            --border:    rgba(255,255,255,0.07);
+            --serif:     'Fraunces', Georgia, serif;
+            --sans:      'Instrument Sans', system-ui, sans-serif;
+            --mono:      'JetBrains Mono', monospace;
+            --ease:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-    <link type="text/plain" rel="author" href="humans.txt">
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            line-height: 1.65;
+            overflow-x: hidden;
+            cursor: none;
+        }
 
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
+        ul { list-style: none; }
+
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
+        }
+
+        /* ── CUSTOM CURSOR ───────────────────────────── */
+        .cursor-dot, .cursor-ring {
+            position: fixed; border-radius: 50%;
+            pointer-events: none; z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s var(--ease), opacity 0.3s;
+        }
+        .cursor-dot {
+            width: 6px; height: 6px;
+            background: var(--amber);
+        }
+        .cursor-ring {
+            width: 32px; height: 32px;
+            border: 1.5px solid rgba(232,84,122,0.5);
+            transition: width 0.2s var(--ease), height 0.2s var(--ease), transform 0.08s var(--ease), border-color 0.2s;
+        }
+        body:has(a:hover) .cursor-ring,
+        body:has(button:hover) .cursor-ring {
+            width: 48px; height: 48px;
+            border-color: var(--amber);
+        }
+
+        /* ── TYPOGRAPHY ──────────────────────────────── */
+        .label {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--amber);
+        }
+
+        /* ── NAV ──────────────────────────────────────── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 0 40px;
+            height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+            background: linear-gradient(to bottom, rgba(7,9,13,0.95) 0%, transparent 100%);
+            backdrop-filter: blur(0px);
+            transition: backdrop-filter 0.4s, background 0.4s;
+        }
+        nav.scrolled {
+            background: rgba(7,9,13,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .nav-logo span { color: var(--amber); }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            padding: 8px 20px;
+            border: 1px solid var(--amber);
+            color: var(--amber) !important;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s !important;
+        }
+        .nav-cta:hover {
+            background: var(--amber) !important;
+            color: var(--bg) !important;
+        }
+
+        /* ── HERO ────────────────────────────────────── */
+        #hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            align-items: center;
+            padding: 120px 80px 80px;
+            gap: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            bottom: -60px; right: -40px;
+            font-family: var(--serif);
+            font-size: clamp(120px, 20vw, 300px);
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: -0.05em;
+        }
+
+        .hero-label {
+            margin-bottom: 28px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .hero-label::before {
+            content: '';
+            display: block;
+            width: 40px; height: 1px;
+            background: var(--amber);
+        }
+
+        .hero-name {
+            font-family: var(--serif);
+            font-size: clamp(52px, 7vw, 100px);
+            font-weight: 900;
+            line-height: 0.92;
+            letter-spacing: -0.03em;
+            margin-bottom: 28px;
+        }
+        .hero-name .line-2 {
+            font-style: italic;
+            font-weight: 200;
+            color: var(--amber);
+        }
+
+        .hero-role {
+            font-family: var(--mono);
+            font-size: 14px;
+            color: var(--sky);
+            margin-bottom: 32px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .hero-role::before { content: '> '; opacity: 0.5; }
+        #typed-role { border-right: 2px solid var(--sky); padding-right: 3px; }
+
+        .hero-desc {
+            font-size: 17px;
+            color: var(--muted);
+            max-width: 520px;
+            line-height: 1.75;
+            margin-bottom: 48px;
+        }
+        .hero-desc strong { color: var(--text); font-weight: 500; }
+
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px;
+            background: var(--amber);
+            color: var(--bg);
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: transform 0.2s var(--ease), box-shadow 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(232,84,122,0.3);
+        }
+
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 32px;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .btn-ghost:hover {
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.04);
+        }
+
+        .hero-stats {
+            display: flex; gap: 48px;
+        }
+        .stat-num {
+            font-family: var(--serif);
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--text);
+        }
+        .stat-num span { color: var(--amber); }
+        .stat-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* HERO PHOTO */
+        .hero-photo-wrap {
+            position: relative;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hero-photo-ring {
+            position: absolute;
+            width: 420px; height: 420px;
+            border-radius: 50%;
+            border: 1px dashed rgba(232,84,122,0.25);
+            animation: spin 30s linear infinite;
+        }
+        .hero-photo-ring::after {
+            content: '';
+            position: absolute;
+            top: -4px; left: 50%;
+            width: 8px; height: 8px;
+            background: var(--amber);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .hero-photo-ring-2 {
+            position: absolute;
+            width: 460px; height: 460px;
+            border-radius: 50%;
+            border: 1px solid rgba(232,84,122,0.06);
+        }
+
+        .hero-photo {
+            width: 360px; height: 360px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            filter: grayscale(20%) contrast(1.05);
+            box-shadow:
+                0 0 0 6px rgba(232,84,122,0.1),
+                0 32px 80px rgba(0,0,0,0.6);
+        }
+
+        .hero-location {
+            position: absolute;
+            bottom: -20px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            white-space: nowrap;
+            z-index: 3;
+        }
+        .hero-location::before { content: '📍 '; }
+
+        /* ── ABOUT ────────────────────────────────────── */
+        #about {
+            padding: 140px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .section-eyebrow {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 20px;
+        }
+        .section-eyebrow::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            max-width: 60px;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(38px, 4vw, 60px);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            margin-bottom: 28px;
+        }
+        .section-title em {
+            font-style: italic;
+            font-weight: 200;
+            color: var(--amber);
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+        .about-text p strong { color: var(--text); }
+
+        .about-values {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 12px; margin-top: 36px;
+        }
+        .value-chip {
+            padding: 12px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .value-chip:hover { border-color: rgba(232,84,122,0.3); color: var(--text); }
+        .value-chip span { display: block; color: var(--amber); margin-bottom: 2px; }
+
+        /* TIMELINE */
+        .timeline { position: relative; padding-left: 28px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 8px; bottom: 8px;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--amber), var(--border), transparent);
+        }
+
+        .tl-item {
+            position: relative;
+            margin-bottom: 36px;
+            padding-left: 12px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+        }
+        .tl-item.visible { opacity: 1; transform: translateX(0); }
+        .tl-item:last-child { margin-bottom: 0; }
+
+        .tl-dot {
+            position: absolute;
+            left: -26px; top: 6px;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            transition: border-color 0.2s;
+        }
+        .tl-item:hover .tl-dot { border-color: var(--amber); }
+        .tl-item:last-child .tl-dot { border-color: var(--amber); background: var(--amber); }
+
+        .tl-year {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--amber);
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+        .tl-role {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .tl-company {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ── SKILLS ──────────────────────────────────── */
+        #skills {
+            padding: 100px 80px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 64px;
+        }
+
+        .skill-item { margin-bottom: 28px; }
+        .skill-head {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 10px;
+        }
+        .skill-name {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text);
+        }
+        .skill-pct {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--amber);
+        }
+        .skill-bar {
+            height: 2px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--amber), var(--sky));
+            border-radius: 2px;
+            width: 0;
+            transition: width 1.2s var(--ease);
+        }
+
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .tech-tag {
+            padding: 6px 14px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            transition: border-color 0.2s, color 0.2s, transform 0.2s;
+        }
+        .tech-tag:hover {
+            border-color: rgba(232,84,122,0.4);
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        /* ── PROJECTS ─────────────────────────────────── */
+        #work {
+            padding: 140px 80px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 64px;
+        }
+        .projects-grid .proj-featured {
+            grid-column: span 2;
+        }
+
+        .proj-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: border-color 0.3s, transform 0.3s var(--ease), box-shadow 0.3s;
+        }
+        .proj-card:hover {
+            border-color: rgba(232,84,122,0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+        }
+
+        .proj-img-wrap {
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            background: var(--surface-2);
+        }
+        .proj-featured .proj-img-wrap { aspect-ratio: 21/9; }
+
+        .proj-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%) brightness(0.85);
+            transition: filter 0.5s, transform 0.5s var(--ease);
+        }
+        .proj-card:hover .proj-img-wrap img {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.04);
+        }
+
+        .proj-body { padding: 24px; }
+        .proj-title {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+        .proj-card:hover .proj-title { color: var(--amber); }
+        .proj-desc {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .proj-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--sky);
+            transition: gap 0.2s;
+        }
+        .proj-card:hover .proj-link { gap: 10px; }
+
+        /* ── QUOTE ────────────────────────────────────── */
+        #quote {
+            padding: 120px 80px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .quote-mark {
+            font-family: var(--serif);
+            font-size: 120px;
+            line-height: 0.5;
+            color: var(--amber);
+            opacity: 0.3;
+            margin-bottom: 32px;
+        }
+        .quote-text {
+            font-family: var(--serif);
+            font-size: clamp(24px, 3vw, 40px);
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 800px;
+            margin: 0 auto 28px;
+            color: var(--text);
+        }
+        .quote-author {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
+        .quote-author::before { content: '— '; }
+
+        /* ── TESTIMONIALS ─────────────────────────────── */
+        #testimonials {
+            padding: 140px 80px;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 64px;
+        }
+
+        .testi-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 36px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+        .testi-card:hover { border-color: rgba(232,84,122,0.2); }
+
+        .testi-quote-icon {
+            font-family: var(--serif);
+            font-size: 64px;
+            line-height: 1;
+            color: var(--amber);
+            opacity: 0.2;
+            margin-bottom: 16px;
+        }
+        .testi-text {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+        .testi-author {
+            display: flex; align-items: center; gap: 16px;
+        }
+        .testi-avatar {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+        }
+        .testi-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .testi-role-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--amber);
+        }
+
+        /* ── CONTACT ──────────────────────────────────── */
+        #contact {
+            padding: 140px 80px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 64px;
+            align-items: start;
+        }
+
+        .contact-info-text {
+            font-size: 17px;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        .contact-info-text strong { color: var(--text); }
+
+        .contact-socials { display: flex; gap: 16px; flex-wrap: wrap; }
+        .social-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 18px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+        .social-link:hover {
+            border-color: rgba(232,84,122,0.3);
+            color: var(--amber);
+            background: var(--amber-dim);
+        }
+
+        .contact-form { display: flex; flex-direction: column; gap: 16px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .form-group input, .form-group textarea {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 16px;
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+            resize: none;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: rgba(232,84,122,0.4);
+        }
+        .form-group textarea { height: 140px; }
+
+        /* ── FOOTER ───────────────────────────────────── */
+        footer {
+            padding: 48px 80px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-logo {
+            font-family: var(--serif);
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 700;
+        }
+        .footer-logo span { color: var(--amber); }
+        .footer-copy {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--muted);
+        }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--amber); }
+
+        /* ── SCROLL ANIMATIONS ───────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ── HERO ANIMATIONS ─────────────────────────── */
+        .hero-left > * { opacity: 0; transform: translateY(24px); animation: heroIn 0.8s var(--ease) forwards; }
+        .hero-left .hero-label   { animation-delay: 0.1s; }
+        .hero-left .hero-name    { animation-delay: 0.25s; }
+        .hero-left .hero-role    { animation-delay: 0.4s; }
+        .hero-left .hero-desc    { animation-delay: 0.5s; }
+        .hero-left .hero-actions { animation-delay: 0.6s; }
+        .hero-left .hero-stats   { animation-delay: 0.7s; }
+        .hero-photo-wrap { opacity: 0; animation: heroFade 1s 0.4s var(--ease) forwards; }
+
+        @keyframes heroIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heroFade {
+            to { opacity: 1; }
+        }
+
+        /* ── RESPONSIVE ──────────────────────────────── */
+        @media (max-width: 1100px) {
+            #hero { grid-template-columns: 1fr; padding: 120px 40px 80px; }
+            .hero-photo-wrap { display: none; }
+            .hero-bg-text { font-size: 120px; }
+            #about { grid-template-columns: 1fr; padding: 80px 40px; gap: 60px; }
+            #skills { padding: 80px 40px; }
+            .skills-grid { grid-template-columns: 1fr; gap: 40px; }
+            #work { padding: 80px 40px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .projects-grid .proj-featured { grid-column: span 1; }
+            #quote { padding: 80px 40px; }
+            #testimonials { padding: 80px 40px; }
+            .testi-grid { grid-template-columns: 1fr; }
+            #contact { padding: 80px 40px; }
+            .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+            footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px; }
+            nav { padding: 0 24px; }
+        }
+
+        @media (max-width: 640px) {
+            #hero { padding: 100px 24px 60px; }
+            .hero-stats { gap: 28px; }
+            .hero-actions { flex-direction: column; }
+            #about, #skills, #work, #quote, #testimonials, #contact { padding: 60px 24px; }
+            .about-values { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
 </head>
-<body id="page-top">
-	<a href="#page-top" class="scroll-up scroll"><i class="fa fa-chevron-up"></i></a>
-    <h1>Full Stack Developer on JavaScript</h1>
+<body>
 
-    <header>
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavigation"><i class="fa fa-bars"></i></button>
-                    <img src="image/francesc_jimenez.png" class="navbar-logo pull-left" alt="" />
-                    <a href="index.html" class="navbar-brand animated flipInX">Francesc Jimenez</a>
-                </div>
-                
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="myNavigation">
-                    <ul class="nav navbar-nav navbar-right animated flipInX">
-                        <li><a href="#about" class="scroll">About me</a></li>
-                        <li><a href="#reference" class="scroll">Reference</a></li>
-                        <li><a href="#testimonials" class="scroll">Testimonials</a></li>
-                        <li><a href="#contact" class="scroll">Contact</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container -->
-        </nav>
-        
-        <div class="jumbotron">
-            <img src="image/francesc_jimenez.png" class="img-responsive scrollpoint sp-effect3" alt="" />
-            <div class="social-wrapper">
-                <ul class="brands brands-inline hidden-xs scrollpoint sp-effect1">
-                    <li><a href="https://www.facebook.com/francescjimenez" target="_blank"><i class="fa fa-facebook  hi-icon-effect-8"></i></a></li>
-                    <li><a href="https://twitter.com/FrancescJimenez" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                </ul>   
-                <h2 class="scrollpoint sp-effect3">Francesc Jimenez</h2>
-                <ul class="brands brands-inline hidden-xs scrollpoint sp-effect2">
-                    <li><a href="http://www.francescjimenez.com" target="_blank"><i class="fa fa-link"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/francescjimenez" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                </ul>       
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-logo">F<span>.</span>Jimenez</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact" class="nav-cta">Let's connect</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero">
+        <div class="hero-left">
+            <div class="hero-label">
+                <span class="label">Available for work</span>
             </div>
-            <div id="slideshow" class="carousel slide vertical scrollpoint sp-effect3" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="item active"><h3>I <i class="fa fa-heart icon-first"></i> analyst developer</h3></div>
-                    <div class="item"><h3>Creative coder <i class="fa fa-code icon"></i></h3></div>
-                    <div class="item"><h3><i class="fa fa-trophy"></i> Awesome programing</h3></div>
+
+            <h1 class="hero-name">
+                Francesc<br>
+                <span class="line-2">Jimenez</span>
+            </h1>
+
+            <p class="hero-role">
+                <span id="typed-role">Digital Operations Team Lead</span>
+            </p>
+
+            <p class="hero-desc">
+                <strong>20+ years</strong> bridging business strategy and technical execution from Barcelona.
+                I lead cross-functional digital teams — frontend, SEO, QA, accessibility — and build
+                the <strong>architecture and processes</strong> that let organisations scale.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#work" class="btn-primary">View my work ↓</a>
+                <a href="#contact" class="btn-ghost">Get in touch</a>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <div class="stat-num">20<span>+</span></div>
+                    <div class="stat-label">Years exp.</div>
+                </div>
+                <div>
+                    <div class="stat-num">25<span>+</span></div>
+                    <div class="stat-label">People managed</div>
+                </div>
+                <div>
+                    <div class="stat-num">4</div>
+                    <div class="stat-label">Disciplines led</div>
                 </div>
             </div>
-        <a href="#about" class="btn btn-reference btn-lg scroll scrollpoint sp-effect1" role="button"><i class="fa fa-smile-o"></i> Know me better</a>
-        <a href="#contact" class="btn btn-reference btn-lg btn-active scroll scrollpoint sp-effect2" role="button"><i class="fa fa-bolt"></i> Hire me</a> 
         </div>
-    </header>
 
-    <section id="about" class="content-first">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2 hidden-xs scrollpoint sp-effect1"><!-- Profile image --> 
-                	<img src="image/francesc_jimenez.png" class="image-bordered img-responsive" alt="" />
-                </div><!-- Profile end --> 
-                
-                <div class="col-md-7 col-sm-6 scrollpoint sp-effect1"><!-- Profile description --> 
-                	<h3>Francesc Jimenez</h3>
-                  	<p>The Most fullstack developer in Barcelona.</p>
-
-                    <p>Más 10 años de experiencia como programador en el sector online me permiten poder adaptarme a cualquier framework/librería e incluso lenguaje con facilidad. Mi experiencia en lenguajes se basa principalmente en PHP y JavaScript.</p>
-                    <p>Mis prioridades al realizar una aplicación se centran en conseguir un buen rendimiento y fluidez.</p>
-                    <p>En lo personal mi otra gran afición es la fotografía. Donde al igual que en mi código, me gustan los elementos bien ordenados y fáciles de leer.</p>
-
-                    <div class="tweets"><!-- Tweets row --> 
-                        <!-- Tweets slideshow --> 
-                             <div class="media">
-                                    <div class="pull-left"><i class="fa fa-twitter"></i></div>
-                                    <div class="media-body">
-                                        <div id="slideshow1" class="carousel slide" data-ride="carousel">
-                                              <div class="carousel-inner">
-                                               <!-- Slideshow item 1 active --> 
-                                                  <div class="item active">
-                                                        <p>I just finished Angular 2+ Fundamentals with @ultimateangular! https://ultimateangular.com/courses/</p>
-                                                  </div>
-                                               <!-- Slideshow item 2 -->    
-                                                  <div class="item">
-                                                        <p>#PADRIS y #BigData: Una nueva esperanza - @iSanidad http://isanidad.com/80210/padris-y-big-data-una-nueva-esperanza/ #farma #esalud #sanidad #hcsmeues #hcsmla</p>
-                                                  </div>
-                                                  
-                                                <!-- Slideshow item 3 -->
-                                                  <div class="item">
-                                                        <p>15 Interesting JavaScript and CSS Libraries for September 2016</p>
-                                                  </div>
-                                              </div>    
-                                         </div>
-                                    </div>
-                             </div>    
-                       <!-- Tweets slideshow end --> 
-                    </div><!-- Tweets row end --> 
-               </div><!-- Profile description end--> 
-                
-              <div class="col-md-3 col-sm-4 scrollpoint sp-effect2"><!--Timeline-->
-                 
-                  <div class="timeline">
-                      <!-- BLOG POST 1 - START -->
-                      <div class="event">
-                          <div class="event-info">
-                            <div class="date">2006</div>
-                          </div>
-                      	  <span>Junior PHP on Grn-Comtech</span>
-                      </div> <!-- BLOG POST 1 - END -->
-                      
-                      <div class="event">
-                          <div class="event-info">
-                             <div class="date">2009</div>
-                          </div>
-                      	  <span>Junior PHP Meristation</span>
-                      </div> <!-- BLOG POST 1 - END -->
-                      
-                      <div class="event">
-                          <div class="event-info">
-                             <div class="date">2010</div>
-                          </div>
-                      	  <span>Fullstack-Project Manager 6tems</span>
-                      </div> <!-- BLOG POST 1 - END -->
-                      
-                      <div class="event">
-                          <div class="event-info">
-                             <div class="date">2014</div>
-                          </div>
-                      	  <span>Fullstack on Cronnection</span>
-                      </div> <!-- BLOG POST 1 - END -->
-                      
-                      <div class="event">
-                          <div class="event-info">
-                             <div class="date">2015</div>
-                          </div>
-                      	  <span>FullStack Javascript on MasterASP</span>
-                      </div> <!-- BLOG POST 1 - END -->
-
-                      <div class="event">
-                          <div class="event-info">
-                              <div class="date">2016</div>
-                          </div>
-                          <span>Frontend Enginner on Doctoralia</span>
-                      </div> <!-- BLOG POST 1 - END -->
-
-                  </div><!--timeline-->
-              </div><!--col 3 end-->
-               
-            </div><!--Row about end-->
-            
-            
-            <div class="row">
-            	<div class="col-md-12 text-center">
-                	<a id="skills-toggle" class="btn btn-primary"><i class="fa fa-arrow-circle-o-down"></i> Check my skills</a>
-                </div>
-            </div>
-        </div><!-- Container end-->
-        
-        <div id="skills">
-            <div class="container">   
-                <div class="row"><!-- Toogle my skills start --> 
-                    <div class="col-md-3">
-                        <div class="chart" data-percent="90">90% JS</div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="chart" data-percent="89">89% CSS</div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="chart" data-percent="83">98% HTML</div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="chart" data-percent="62">62% Design</div>
-                    </div>
-                </div><!-- Toogle my skills end--> 
-                
-            </div><!-- Container end-->
+        <div class="hero-photo-wrap">
+            <div class="hero-photo-ring-2"></div>
+            <div class="hero-photo-ring"></div>
+            <img src="image/francesc_jimenez.png" alt="Francesc Jimenez" class="hero-photo">
+            <div class="hero-location">Barcelona</div>
         </div>
-        
+
+        <div class="hero-bg-text" aria-hidden="true">IT</div>
     </section>
 
-    <section id="services" class="content-second">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="scrollpoint sp-effect3">What i do</h2>
-                    <p class="scrollpoint sp-effect3">I love to investigate the new features and technologies of the sector and to adapt myself to them. I always have in mind writing clean, comprehensive, testable and easy to maintain code.</p>
-                </div>
-                
-                <div class="col-md-3 service scrollpoint sp-effect1">
-                    <img src="image/ico5.png" alt="">
-                    <h3>Innovation first</h3>
-                    <!--
-                        <p>.</p>
-                    -->
-                </div>
-                
-                
-                <div class="col-md-3 service scrollpoint sp-effect1">
-                    <img src="image/ico4.png" alt="">
-                    <h3>Clean code</h3>
-                    <!--
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-                    -->
-                </div>
-                
-                
-                <div class="col-md-3 service scrollpoint sp-effect2">
-                    <img src="image/ico1.png" alt="">
-                    <h3>Full responsive</h3>
-                    <!--
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-                    -->
-                </div>
-                
-                <div class="col-md-3 service scrollpoint sp-effect2">
-                    <img src="image/ico3.png" alt="">
-                    <h3>Browser friendly</h3>
-                    <!--
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-                    -->
-                </div>
-                
+    <!-- About -->
+    <section id="about">
+        <div class="about-left reveal">
+            <div class="section-eyebrow">
+                <span class="label">About me</span>
             </div>
-        </div>
-    </section>
+            <h2 class="section-title">Engineering<br>leader with<br><em>hands-on</em><br>depth.</h2>
 
-    <section id="separator" class="content-first">
-        <div class="container">
-            <div class="row scrollpoint sp-effect3">
-                <div class="col-sm-2">
-                	<i class="fa fa-user"></i>
-                    <p><span class="highlight">+100</span> Happy clients</p>
-                </div> 	
-                <div class="col-sm-2">
-                	<i class="fa fa-coffee"></i>
-                    <p><span class="highlight">+100</span> projects</p>
-                </div> 	
-                <div class="col-sm-2">
-                	<i class="fa fa-code"></i>
-                    <p><span class="highlight">+25000</span> lines</p>
-                </div>
-                <div class="col-sm-2">
-                    <i class="fa fa-envelope"></i>
-                    <p><span class="highlight">+2000</span> emails</p>
-                </div>
-                <div class="col-sm-2">
-                	<i class="fa fa-phone"></i>
-                    <p><span class="highlight">contact</span> phone</p>
-                </div>
-                <div class="col-sm-2">
-                	<i class="fa fa-facebook"></i>
-                    <p><span class="highlight">contact</span> facebook</p>
-                </div> 	
+            <div class="about-text">
+                <p>
+                    My journey started writing code in 2006 — but the most impactful chapters came when I
+                    stepped into leadership. Over 20 years I've moved from engineer to architect to team lead
+                    across <strong>startups, agencies, scale-ups, and global brands</strong>.
+                </p>
+                <p>
+                    Today I lead the Digital Operations team at <strong>Nespresso</strong>, managing
+                    Frontend, SEO, QA, and Accessibility engineering. My technical depth lets me make
+                    decisions that are both <strong>strategically sound and architecturally solid</strong>
+                    — from defining a Design System that scaled campaign output from 7 to 42 per year,
+                    to shaping team roadmaps and mentoring engineers.
+                </p>
+                <p>
+                    I believe great technology leaders don't just delegate — they <strong>understand the
+                    code, set the standards, and align every technical decision with business outcomes</strong>.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <section id="showcase" class="content-second">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2 class="scrollpoint sp-effect3">My latest work</h2>
-                    <p class="scrollpoint sp-effect3">Complete developer of an access control for the port of huelva, in the company MasterASP.</p>
+            <div class="about-values">
+                <div class="value-chip reveal reveal-delay-1">
+                    <span>01</span>Team leadership
                 </div>
-                
-                <div class="col-lg-6 showcase-text scrollpoint sp-effect1">
-                    <div class="row">
-                    <!-- Service 1 -->
-                    	<div class="col-sm-6 col-md-6 col-lg-12">
-                            <div class="media">
-                                <div class="pull-left showcase-icon"><i class="fa fa-puzzle-piece"></i></div>
-                                <div class="media-body">
-                                    <h3 class="media-heading">Adapted hardware</h3>
-                                    <p>El software permite controlar elementos físicos del puerto</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Service 2 -->
-                    	<div class="col-sm-6 col-md-6 col-lg-12">
-                            <div class="media">
-                                <div class="pull-left showcase-icon"><i class="fa fa-trophy"></i></div>
-                                <div class="media-body">
-                                   <h3 class="media-heading">Velocidad</h3>
-                                    <p>Una de las prioridades era que fuese rápido. Para poder realizar acciones sobre los accesos en tiempo real.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Service 3 -->
-                    	<div class="col-sm-6 col-md-6 col-lg-12">
-                            <div class="media">
-                                <div class="pull-left showcase-icon"><i class="fa fa-thumbs-up"></i></div>
-                                <div class="media-body">
-                                    <h3 class="media-heading">Profesional</h3>
-                                    <p>Al ser un proyecto gobernamental hiba ligado a un trato muy profesional</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Service 4 -->
-                    	<div class="col-sm-6 col-md-6 col-lg-12">
-                            <div class="media">
-                                <div class="pull-left showcase-icon"><i class="fa fa-arrows"></i></div>
-                                <div class="media-body">
-                                    <h3 class="media-heading">Adaptable a otros dispositivos</h3>
-                                    <p>La variedad de pantalla de los usuarios de la aplicación era muy amplia, des de muy pequeña para los guardias de seguridad a más de 27' para la secretaria.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                   <div class="text-center showcase-button">
-                   		<a class="btn btn-primary btn-lg" href="http://www.puertohuelva.com/es/comunicacion/noticias/el-puerto-de-huelva-presenta-las-instalaciones-del-nuevo-centro-portuario-de-control-de-servicios.html?idCategoria=0&fechaDesde=&texto=&fechaHasta=" target="_blank" role="button"><i class="fa fa-bolt"></i> See in action</a>
-                   </div>
-                </div>            
-            
-                <div class="col-lg-6 col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-0 showcase-carousel hidden-xs scrollpoint sp-effect2">
-                    <img src="image/imac.png" class="img-responsive" alt="">
-
-                    <div id="carousel-reference" class="carousel slide" data-ride="carousel">
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active"><img src="image/masterasp.jpg" alt=""></div>
-                            <div class="item"><img src="image/masterasp2.jpg" alt=""></div>
-                        </div>
-                        
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-reference" data-slide="prev"><i class="fa fa-arrow-left"></i></a>
-                        <a class="right carousel-control" href="#carousel-reference" data-slide="next"><i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>  
-            </div>
-        </div>
-    </section>
-
-    <section id="quotes" class="content-first">
-        <div class="container">
-            <div class="row scrollpoint sp-effect3">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <blockquote class="blockquote-reverse">
-                        <p><i class="fa fa-quote-left"></i> Design is not just what it looks like and feels like. Design is how it works.</p>
-                        <footer> Steve Jobs</footer>
-                    </blockquote>
-                </div>   	
-            </div>
-        </div>
-    </section>
-
-    <section id="reference" class="content-second">
-        <h2 class="scrollpoint sp-effect3">Reference</h2>
-        <p class="scrollpoint sp-effect3">This is a short list of the projects I have worked on</p>
-   		<ul class="grid cs-style-4">
-				<li>
-					<figure class="scrollpoint sp-effect1">
-						<div><img src="image/docplanner.jpg" alt="img04"></div>
-						<figcaption>
-							<h3>Docplanner</h3>
-							<a href="https://www.docplanner.com/about-us">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect3">
-						<div><img src="image/masterasp.png" alt="img04"></div>
-						<figcaption>
-							<h3>MasterASP</h3>
-							<a href="http://www.mastercamping.com/" target="_blank">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect2">
-						<div><img src="image/cronnection.jpg" alt="img04"></div>
-						<figcaption>
-							<h3>Cronnection</h3>
-							<a href="http://www.cronnection.com">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect1">
-						<div><img src="image/6tems.jpg" alt="img04"></div>
-						<figcaption>
-							<h3>6tems comunicació</h3>
-							<a href="http://www.6tems.com/cat/web-disseny-projectes.html" target="_blank">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect3">
-						<div><img src="image/gintoniq.jpg" alt="img04"></div>
-						<figcaption>
-							<h3>Gintoniq.com</h3>
-							<a href="http://www.gintoniq.com" target="_blank">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect2">
-						<div><img src="image/menusharing.jpg" alt="img04"></div>
-						<figcaption>
-							<h3>Eatyfy</h3>
-							<a href="http://eatyfy.com" target="_blank">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-				
-			</ul>
-
-	</section>
-
-    <section id="blog" class="content-first">
-    	<div class="container">
-        	<h2 class="scrollpoint sp-effect3">Latest Blog Posts</h2>
-            <p class="scrollpoint sp-effect3">When I was learning programming, I create a blog about programming <a href="http://www.desenweb.es" target="_blank">Desenweb</a></p>
-        </div>
-            
-        <div class="line hidden-xs">
-        	<div class="container">
-                <div class="row">
-                    <div class="col-sm-4"><i class="fa fa-bullhorn"></i></div>
-                    <div class="col-sm-4"><i class="fa fa-bullhorn"></i></div>
-                    <div class="col-sm-4"><i class="fa fa-bullhorn"></i></div>
+                <div class="value-chip reveal reveal-delay-2">
+                    <span>02</span>Architecture & scale
+                </div>
+                <div class="value-chip reveal reveal-delay-3">
+                    <span>03</span>Business alignment
+                </div>
+                <div class="value-chip reveal reveal-delay-4">
+                    <span>04</span>Design systems
                 </div>
             </div>
         </div>
-		
-        <div class="container">
-            <div class="row"><!-- MAIN ROW - Start -->
-            	<!-- BLOG POST - Start -->
-                <div class="col-sm-4 scrollpoint sp-effect1">
-                	<div class="blog-post">
-                    	<div class="blog-body">
-                    		<h3>Filtros CSS: escala de grises</h3>
-                        	<p>El efecto de escala de grises nos puede dar un efecto atractivo en los “hover” de nuestras imágenes. O al revés, mostrar siempre la imagen en escala de grises y mostrar los colores al hover...</p>
-                        	<a href="http://desenweb.es/css-escala-grises/" target="_blank" class="btn btn-primary">Read More</a>
-                        </div>
-                        <div class="blog-info">
-                        	<a><i class="fa fa-comment"></i> 12</a>
-                            <a><i class="fa fa-calendar"></i> 06/09/2014</a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- BLOG POST - End -->
-                
-                <!-- BLOG POST - Start -->
-                <div class="col-sm-4 scrollpoint sp-effect3">
-                	<div class="blog-post">
-                    	<div class="blog-body">
-                    		<h3>Organización en AngularJS</h3>
-                        	<p>El código en AngularJS está organizado en modelos, vistas y controladores. Para llegar a esta organización podríamos decir que tenemos 4 funcionalidades en JavaScript que nos ayudan a conseguir esta organización...</p>
-                        	<a href="http://desenweb.es/organizacion-angularjs/" target="_blank" class="btn btn-primary">Read More</a>
-                        </div>
-                        <div class="blog-info">
-                        	<a><i class="fa fa-comment"></i> 8</a>
-                            <a><i class="fa fa-calendar"></i> 21/03/2014</a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- BLOG POST - End -->
-                
-                <!-- BLOG POST - Start -->
-                <div class="col-sm-4 scrollpoint sp-effect2">
-                	<div class="blog-post">
-                    	<div class="blog-body">
-                    		<h3>Herramientas revisión diseños</h3>
-                        	<p>La tarea de compartir el diseño con el cliente suele ser a menudo complicada de gestionar. A veces te intercambias 100 mails y la página que estais opinando es totalmente distinta o una se refiere al menú X y el otro al menú Y...</p>
-                        	<a href="http://desenweb.es/cliente-revise-tus-disenos/" target="_blank" class="btn btn-primary">Read More</a>
-                        </div>
-                        <div class="blog-info">
-                        	<a><i class="fa fa-comment"></i> 11</a>
-                            <a><i class="fa fa-calendar"></i> 31/09/2014</a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- BLOG POST - End -->
-                
-            </div><!-- MAIN ROW - end -->
-        </div><!-- CONTAINER - end -->
-    </section>
 
-    <section id="testimonials" class="content-first">
-        <div class="container">
-        	<h2 class="scrollpoint sp-effect3 text-center">Testimonials</h2>
-        	<p class="scrollpoint sp-effect3 text-center">Durante estos más de 10 años en el sector terminas teniendo más que relaciones laborales</p>
-            <div class="row">
-            	
-                <!-- TESTIMONIAL 1 - START -->
-                <div class="col-sm-6 scrollpoint sp-effect1">
-                    <div class="media">
-                        <a class="pull-left" href="#"><img class="media-object img-circle" src="image/eric.jpg" alt=""></a>
-                        <div class="media-body">
-                            <h4 class="media-heading">Eric Ferrer</h4>
-                            <span>CEO Entretenemos</span>
-                            <p>A lo largo de estos años Francesc ha demostrado ser una gran profesional con habilidades de gestión de equipos, proyectos y una capacidad innovadora para diseñar soluciones de calidad en cualquier momento. Es sin duda uno de los empleados mas resolutivos que he tenido.</p>
-                            <p>Recomendaría a Francesc para cualquier trabajo en el que se requiere un profesional comprometido y de gran calidad humana, que sepa trabajar en equipo y siempre aporte soluciones positivas cuando mas se le necesite.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- TESTIMONIAL 1 - END -->
-                
-                <!-- TESTIMONIAL 2 - START -->
-                <div class="col-sm-6 scrollpoint sp-effect2">
-                    <div class="media">
-                        <a class="pull-left" href="#"><img class="media-object img-circle" src="image/alvaro.jpg" alt=""></a>
-                        <div class="media-body">
-                            <h4 class="media-heading">Álvaro Castaño</h4>
-                            <span>Webdesigner</span>
-                            <p>He trabajado con Francesc durante casi 2 años en un ritmo de startup recién comenzada. Ha sido muy resolutivo a la hora de planificar arquitectura técnica del sitio, gestión de tarea y equipo, creación y desarrollo de nuevas ideas y un muy alto nivel a la hora de programar.</p>
-                            <p>Es una persona responsable, confiable que se implica en los proyectos y aporta en todo momento.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- TESTIMONIAL 2 - END -->
-                
+        <div class="about-right">
+            <div class="section-eyebrow reveal">
+                <span class="label">Career timeline</span>
             </div>
-            
-        </div>
-    </section>
 
-    <section id="contact" class="content-first">
-        <div class="container">
-        	<h2 class="scrollpoint sp-effect3">Contact me</h2>
-            <div class="row">
-            <!-- PRICING TABLE FIRST - start --> 
-                <div class="col-sm-12">
-                	<img src="image/macbook.png" class="img-responsive hidden-xs" alt="">
-                    
-                    <div class="macbook-inner black">
-                    	<div class="row scrollpoint sp-effect4">
-                        	<div class="col-sm-8">
-                            	<h3 class="hidden-xs">Leave a message</h3>
-                                <div class="form-group">
-                                    <label for="firstname" class="sr-only">First Name</label>
-                                    <input type="text" class="form-control" placeholder="First Name" id="firstname">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="lastname" class="sr-only">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name" id="lastname">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email" class="sr-only">Email</label>
-                                    <input type="email" class="form-control" placeholder="Email" id="email">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="message" class="sr-only">Message</label>
-                                    <textarea class="form-control" placeholder="Message" id="message"></textarea>
-                                </div>
-
-                                <a class="btn btn-primary" id="sendMessage" >Send message</a>
-
-                            </div>
-                            <div class="col-sm-4">
-                            
-                            <img src="image/francesc_jimenez.png" class="contact-image image-responsive hidden-xs hidden-sm" alt="" />
-                            	<div class="contact-info">
-                                	<p>Francesc Jimenez</p>
-                                    <p>Barcelona</p>
-                                </div>
-                            </div>
-                    	</div>
-                    </div>
-                    
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2006</div>
+                    <div class="tl-role">Junior PHP Developer</div>
+                    <div class="tl-company">Grn-Comtech</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2010</div>
+                    <div class="tl-role">Fullstack Developer & Project Manager</div>
+                    <div class="tl-company">6tems Comunicació</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2015</div>
+                    <div class="tl-role">Fullstack JavaScript Developer</div>
+                    <div class="tl-company">MasterASP</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2016</div>
+                    <div class="tl-role">Frontend Engineer</div>
+                    <div class="tl-company">Docplanner (Doctoralia)</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2019</div>
+                    <div class="tl-role">Frontend Lead</div>
+                    <div class="tl-company">Suntransfers.com</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2020</div>
+                    <div class="tl-role">Senior Software Engineer → Frontend Architect</div>
+                    <div class="tl-company">Nespresso</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2025 →</div>
+                    <div class="tl-role">Digital Operations Team Lead</div>
+                    <div class="tl-company">Nespresso</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 scrollpoint sp-effect3">
-                
-                    <ul class="brands brands-inline">
-                        <li><a href="https://www.facebook.com/francescjimenez" target="_blank"><i class="fa fa-facebook  hi-icon-effect-8"></i></a></li>
-                        <li><a href="https://twitter.com/FrancescJimenez" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="http://www.francescjimenez.com" target="_blank"><i class="fa fa-link"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/francescjimenez" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
+    <!-- Skills -->
+    <section id="skills">
+        <div class="section-eyebrow reveal">
+            <span class="label">Core competencies</span>
+        </div>
+        <h2 class="section-title reveal">My <em>craft</em></h2>
 
-                    <p>© Francesc Jimenez  2017.</p>
-                </div>   	
+        <div class="skills-grid">
+            <div>
+                <div class="skill-item reveal">
+                    <div class="skill-head">
+                        <span class="skill-name">Team Leadership & Management</span>
+                        <span class="skill-pct">90%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                </div>
+                <div class="skill-item reveal reveal-delay-1">
+                    <div class="skill-head">
+                        <span class="skill-name">Frontend Architecture & Design Systems</span>
+                        <span class="skill-pct">95%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+                </div>
+                <div class="skill-item reveal reveal-delay-2">
+                    <div class="skill-head">
+                        <span class="skill-name">Technical Roadmap & Strategy</span>
+                        <span class="skill-pct">88%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                </div>
+                <div class="skill-item reveal reveal-delay-3">
+                    <div class="skill-head">
+                        <span class="skill-name">Agile, DevOps & Process Definition</span>
+                        <span class="skill-pct">85%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                </div>
+            </div>
+
+            <div class="reveal reveal-delay-1">
+                <div class="section-eyebrow" style="margin-bottom: 20px;">
+                    <span class="label">Technologies & Tools</span>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Design Systems</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Web Components</span>
+                    <span class="tech-tag">CI/CD</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">REST APIs</span>
+                    <span class="tech-tag">SEO</span>
+                    <span class="tech-tag">Accessibility</span>
+                    <span class="tech-tag">Performance</span>
+                    <span class="tech-tag">Agile / Scrum</span>
+                    <span class="tech-tag">Career Mentoring</span>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Work -->
+    <section id="work">
+        <div class="section-eyebrow reveal">
+            <span class="label">Selected work</span>
+        </div>
+        <h2 class="section-title reveal">Where business<br>meets <em>technology</em></h2>
+
+        <div class="projects-grid">
+            <div class="proj-card proj-featured reveal">
+                <div class="proj-img-wrap">
+                    <img src="image/gintoniq.jpg" alt="Nespresso Design System">
+                </div>
+                <div class="proj-body">
+                    <h3 class="proj-title">Nespresso — Design System & Digital Operations</h3>
+                    <p class="proj-desc">
+                        Led the Design System initiative that componentized Nespresso's entire digital experience.
+                        By shifting from bespoke page builds to a shared component library, campaign production
+                        scaled from <strong>7 to 42 launches per year</strong> — a 6× increase in output with the same team.
+                        As Digital Operations Team Lead I now oversee Frontend, SEO, QA, and Accessibility engineering,
+                        setting technical standards and driving the roadmap across the digital experience org.
+                    </p>
+                    <a href="https://www.nespresso.com" target="_blank" class="proj-link">View project →</a>
+                </div>
+            </div>
+
+            <div class="proj-card reveal reveal-delay-1">
+                <div class="proj-img-wrap">
+                    <img src="image/docplanner.jpg" alt="Docplanner">
+                </div>
+                <div class="proj-body">
+                    <h3 class="proj-title">Docplanner</h3>
+                    <p class="proj-desc">
+                        Joined Europe's leading healthcare marketplace as Frontend Engineer.
+                        Contributed to accessible, performant interfaces used by millions across
+                        13 countries — establishing architectural patterns that shaped the
+                        frontend team's long-term standards.
+                    </p>
+                    <a href="https://www.docplanner.com/about-us" target="_blank" class="proj-link">View project →</a>
+                </div>
+            </div>
+
+            <div class="proj-card reveal reveal-delay-1">
+                <div class="proj-img-wrap">
+                    <img src="image/cronnection.jpg" alt="Suntransfers">
+                </div>
+                <div class="proj-body">
+                    <h3 class="proj-title">Suntransfers.com</h3>
+                    <p class="proj-desc">
+                        As Frontend Lead, defined the Design System architecture and led the frontend
+                        team for one of Europe's top airport transfer platforms. Responsible for
+                        JS architecture decisions across frontend and Node.js microservices.
+                    </p>
+                    <a href="https://www.suntransfers.com" target="_blank" class="proj-link">View project →</a>
+                </div>
+            </div>
+
+            <div class="proj-card reveal reveal-delay-2">
+                <div class="proj-img-wrap">
+                    <img src="image/masterasp.png" alt="MasterASP">
+                </div>
+                <div class="proj-body">
+                    <h3 class="proj-title">Port of Huelva — Access Control</h3>
+                    <p class="proj-desc">
+                        Architected and delivered a real-time access control system for one of
+                        Spain's busiest ports, translating complex operational requirements into
+                        a robust, hardware-integrated technical solution.
+                    </p>
+                    <a href="http://www.mastercamping.com/" target="_blank" class="proj-link">View project →</a>
+                </div>
+            </div>
+
+            <div class="proj-card reveal reveal-delay-3">
+                <div class="proj-img-wrap">
+                    <img src="image/6tems.jpg" alt="6tems">
+                </div>
+                <div class="proj-body">
+                    <h3 class="proj-title">6tems Comunicació</h3>
+                    <p class="proj-desc">
+                        Led fullstack development and project management for a digital communications
+                        agency — owning client relationships, technical decisions, and delivery
+                        across a portfolio of concurrent projects.
+                    </p>
+                    <a href="http://www.6tems.com/cat/web-disseny-projectes.html" target="_blank" class="proj-link">View project →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section id="quote">
+        <div class="quote-mark reveal">"</div>
+        <blockquote class="quote-text reveal reveal-delay-1">
+            Design is not just what it looks like and feels like.<br>Design is how it works.
+        </blockquote>
+        <p class="quote-author reveal reveal-delay-2">Steve Jobs</p>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="section-eyebrow reveal">
+            <span class="label">Testimonials</span>
+        </div>
+        <h2 class="section-title reveal">What people<br><em>say</em></h2>
+
+        <div class="testi-grid">
+            <div class="testi-card reveal">
+                <div class="testi-quote-icon">"</div>
+                <p class="testi-text">
+                    Throughout these years Francesc has proven to be a great professional with team and project management skills
+                    and an innovative capacity to design quality solutions at any time. He is undoubtedly one of the most
+                    resourceful employees I have ever had. I would recommend Francesc for any job that requires a committed professional
+                    of great human quality, who knows how to work in a team and always provides positive solutions when most needed.
+                </p>
+                <div class="testi-author">
+                    <img src="image/eric.jpg" alt="Eric Ferrer" class="testi-avatar">
+                    <div>
+                        <div class="testi-name">Eric Ferrer</div>
+                        <div class="testi-role-label">CEO · Entretenemos</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card reveal reveal-delay-1">
+                <div class="testi-quote-icon">"</div>
+                <p class="testi-text">
+                    I worked with Francesc for almost 2 years in a newly started startup pace. He was very resourceful when it came to
+                    planning the site's technical architecture, task and team management, creation and development of new ideas
+                    and at a very high programming level. He is a responsible, reliable person who gets involved in projects and
+                    contributes at every moment.
+                </p>
+                <div class="testi-author">
+                    <img src="image/alvaro.jpg" alt="Álvaro Castaño" class="testi-avatar">
+                    <div>
+                        <div class="testi-name">Álvaro Castaño</div>
+                        <div class="testi-role-label">Web Designer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-eyebrow reveal">
+            <span class="label">Contact</span>
+        </div>
+        <h2 class="section-title reveal">Let's build<br>something <em>great</em></h2>
+
+        <div class="contact-layout">
+            <div class="reveal reveal-delay-1">
+                <p class="contact-info-text">
+                    Whether you're looking for a <strong>Digital Operations Lead</strong>, an IT manager
+                    who understands the code, or someone to <strong>bridge business goals with technical
+                    execution</strong> — I'm available and always happy to talk.
+                    <br><br>
+                    Based in <strong>Barcelona</strong>, working globally.
+                </p>
+
+                <div class="contact-socials">
+                    <a href="https://www.linkedin.com/in/francescjimenez" target="_blank" class="social-link">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/FrancescJimenez" target="_blank" class="social-link">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        Twitter
+                    </a>
+                    <a href="https://www.facebook.com/francescjimenez" target="_blank" class="social-link">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        Facebook
+                    </a>
+                </div>
+            </div>
+
+            <form class="contact-form reveal reveal-delay-2" id="contactForm">
+                <input type="hidden" name="_subject" value="New message from francescjimenez.github.io">
+                <input type="hidden" name="_captcha" value="false">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fname">First name</label>
+                        <input type="text" id="fname" name="first_name" placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last name</label>
+                        <input type="text" id="lname" name="last_name" placeholder="Doe">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="john@company.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell me about your project..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="align-self: flex-start; border: none; cursor: none;">
+                    Send message ↗
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">F<span>.</span>Jimenez</div>
+        <p class="footer-copy">© 2026 Francesc Jimenez. Barcelona.</p>
+        <ul class="footer-links">
+            <li><a href="https://www.linkedin.com/in/francescjimenez" target="_blank">LinkedIn</a></li>
+            <li><a href="https://twitter.com/FrancescJimenez" target="_blank">Twitter</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </footer>
 
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    // Custom cursor
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let ringX = 0, ringY = 0, mouseX = 0, mouseY = 0;
 
-        ga('create', 'UA-99979902-1', 'auto');
-        ga('send', 'pageview');
+    document.addEventListener('mousemove', e => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        dot.style.left  = mouseX + 'px';
+        dot.style.top   = mouseY + 'px';
+    });
+    (function animateRing() {
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+        ring.style.left = ringX + 'px';
+        ring.style.top  = ringY + 'px';
+        requestAnimationFrame(animateRing);
+    })();
+
+    // Nav scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Typed role animation
+    const roles = [
+        'Digital Operations Team Lead',
+        'IT Manager & Tech Lead',
+        'Frontend Architecture Lead',
+        'Design Systems Strategist',
+        'Business-Driven Engineer'
+    ];
+    let ri = 0, ci = 0, deleting = false;
+    const typedEl = document.getElementById('typed-role');
+    function typeLoop() {
+        const current = roles[ri];
+        if (!deleting) {
+            typedEl.textContent = current.slice(0, ++ci);
+            if (ci === current.length) { deleting = true; setTimeout(typeLoop, 2200); return; }
+        } else {
+            typedEl.textContent = current.slice(0, --ci);
+            if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+        }
+        setTimeout(typeLoop, deleting ? 40 : 80);
+    }
+    setTimeout(typeLoop, 1800);
+
+    // Intersection Observer for reveal animations
+    const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Timeline items
+    const tlObs = new IntersectionObserver(entries => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('visible'), i * 80);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.tl-item').forEach(el => tlObs.observe(el));
+
+    // Skill bars
+    const skillObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.querySelectorAll('.skill-fill').forEach(bar => {
+                    bar.style.width = bar.dataset.width + '%';
+                });
+                skillObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) skillObs.observe(skillsSection);
+
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('button');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        try {
+            const res = await fetch('https://formsubmit.co/ajax/desendoll@gmail.com', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(form)
+            });
+            if (res.ok) {
+                btn.textContent = 'Message sent ✓';
+                btn.style.background = '#38BDF8';
+                form.reset();
+                setTimeout(() => { btn.textContent = 'Send message ↗'; btn.style.background = ''; btn.disabled = false; }, 3000);
+            } else {
+                throw new Error();
+            }
+        } catch {
+            btn.textContent = 'Something went wrong — try again';
+            btn.style.background = '#e05252';
+            setTimeout(() => { btn.textContent = 'Send message ↗'; btn.style.background = ''; btn.disabled = false; }, 3000);
+        }
+    });
 
     </script>
-
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="plugins/creative-brands/creative-brands.js"></script>
-    <script src="plugins/easy-pie-chart/jquery.easy-pie-chart.js"></script>
-    <script src="plugins/modernizr/modernizr.custom.js"></script>
-    <script src="plugins/waypoints/waypoints.min.js"></script>
-    <script src="js/custom.js"></script>
 </body>
 </html>
